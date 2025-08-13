@@ -1,0 +1,241 @@
+@import "tailwindcss"; 
+/*@ here means that a CSS directive is being used, a special instruction for the CSS processor to do smth beyond styling elements*/
+
+/* @theme directive - This is a Tailwind-specific directive that lets us define custom design tokens */
+@theme {
+
+  /* define colours using hsl: hue, saturation, lightness*/
+  --color-border: hsl(var(--border));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-card: hsl(var(--card));
+
+  /* Define custom animations - these create reusable animation presets */
+  --animate-float: float 6s ease-in-out infinite;           /* Gentle up/down floating motion */
+  --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite; /* Subtle fade in/out effect */
+  --animate-fade-in: fade-in 0.7s ease-out forwards;        /* Fade in from bottom */
+  --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards; /* Same as above but starts 0.2s later */
+  --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards; /* Same as above but starts 0.4s later */
+  --animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards; /* Same as above but starts 0.6s later */
+  --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards; /* Same as above but starts 0.8s later */
+  --animate-fade-in-delay-5: fade-in 0.7s ease-out 1.0s forwards; /* Same as above but starts 1.0s later */
+  --animate-fade-in-delay-6: fade-in 0.7s ease-out 1.2s forwards; /* Same as above but starts 1.2s later */
+  --animate-meteor: meteor 5s linear infinite;              /* Shooting star effect */
+  --animate-quill: quill 3s ease-in-out infinite;           /* Quill writing effect */
+  --animate-parchment: parchment 4s ease-in-out infinite;   /* Parchment texture effect */
+
+  /* keyframes is a CSS at-rule that defines what the above animations do
+  
+  0% -> characteristics @ starting point of animation
+  50% -> characteristics @ halfway point of animation
+  100% -> characteristics @ end point of animation */
+  
+  /* Float animation: moves element up and down smoothly */
+  @keyframes float {
+    0%, 
+    100% {
+      transform: translateY(0);    /* At start and end: element is at normal position */
+    }
+    50% {
+      transform: translateY(-10px); /* At middle: element moves 10px up */
+    }
+  }
+  /* Pulse-subtle animation: makes element fade in and out slightly */
+  @keyframes pulse-subtle {
+    0%, 
+    100% {
+      opacity: 1;    /* At start and end: fully visible */
+    }
+    50% {
+      opacity: 0.8;  /* At middle: slightly transparent */
+    }
+  }
+  /* Fade-in animation: element appears from bottom with fade effect */
+  @keyframes fade-in {
+    from{
+      opacity: 0;                    /* Start: invisible */
+      transform: translateY(20px);   /* Start: 20px below final position */
+    }
+    to{
+      opacity: 1;                    /* End: fully visible */
+      transform: translateY(0px);    /* End: at final position */
+    }
+  }
+  /* Meteor animation: creates shooting star effect */
+  @keyframes meteor {
+    0% {
+      transform: rotate(215deg) translateX(100px); /* Start: rotated and moved 100px to the right */
+      opacity: 1;                              /* Start: fully visible */
+    }
+    70% {
+      opacity: 1;                              /* 70% through: still visible */
+    }
+    100% {
+      transform: rotate(215deg) translateX(-500px); /* End: moved 500px left */
+      opacity: 0;                                /* End: invisible */
+    }
+  }
+  /* Quill animation: creates writing effect */
+  @keyframes quill {
+    0%, 100% {
+      transform: rotate(-5deg) translateY(0);
+    }
+    50% {
+      transform: rotate(5deg) translateY(-2px);
+    }
+  }
+  /* Parchment animation: creates subtle texture movement */
+  @keyframes parchment {
+    0%, 100% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+  }
+}
+
+/* @layer base - This organizes our base styles (fundamental styling like colors, typography) */
+@layer base {
+  /* :root selector - defines CSS variables for light mode (default theme) */
+  :root {
+    --background: 210 40% 98%;      /* Light blue-gray background */
+    --foreground: 222 47% 11%;      /* Dark blue-gray text */
+    
+    --card: 0 0% 100%;              /* Pure white for cards */
+
+    --primary: 220 13% 45%;         /* Medium gray primary color */
+    --primary-foreground: 210 40% 98%; /* Light text on primary background */
+
+    --border: 214 32% 91%;          /* Light gray borders */
+  }
+
+  /* .dark selector - defines CSS variables for dark mode */
+  .dark {
+    --background: 222 47% 4%;       /* Very dark blue-gray background */
+    --foreground: 213 31% 91%;      /* Light gray text */
+    
+    --card: 222 47% 8%;             /* Dark gray for cards */
+
+    --primary: 220 13% 55%;         /* Medium gray for dark mode */
+    --primary-foreground: 213 31% 91%; /* Light text on primary background */
+
+    --border: 217 33% 20%;          /* Dark gray borders */
+  }
+
+  /* Universal selector - applies to ALL elements */
+  * {
+    @apply border-border             /* Use our custom border color for all elements */
+  } 
+
+  /* HTML element styling */
+  html {
+    @apply scroll-smooth             /* Enable smooth scrolling behavior */
+  }
+
+  /* Body element styling */
+  body {
+    @apply bg-background text-foreground transition-colors duration-300; /* Background, text color, and smooth color transitions */
+    font-feature-settings: "rlig" 1, "calt" 1;  /* Enable advanced typography features */
+    font-family: 'Inter', 'Arial', sans-serif; /* Clean modern sans-serif font */
+    line-height: 1.6; /* More generous line spacing for readability */
+  }
+
+  /* Add classical typography styles */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Crimson Text', 'Georgia', serif;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  /* Add subtle text shadow for depth */
+  p {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+}
+
+/* @utility directive - Creates custom utility classes (like Tailwind's built-in utilities) */
+
+/* Container utility - responsive container with max-widths for different screen sizes */
+@utility container {
+  margin-inline: auto;              /* Center the container horizontally */
+  padding-inline: 2rem;             /* Add horizontal padding */
+
+  /* Responsive breakpoints - different max-widths for different screen sizes */
+  @media (width >= 640px) {         /* Small screens and up */
+    max-width: 640px;
+  }
+  @media (width >= 768px) {         /* Medium screens and up */
+    max-width: 768px;
+  }
+  @media (width >= 1024px) {        /* Large screens and up */
+    max-width: 1024px;
+  }
+  @media (width >= 1280px) {        /* Extra large screens and up */
+    max-width: 1280px;
+  }
+  @media (width >= 1400px) {        /* Very large screens and up */
+    max-width: 1400px;
+  }
+}
+
+/* Text glow utility - adds elegant text styling */
+@utility text-glow {
+  @apply relative;
+  font-family: 'Crimson Text', serif;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.01em;
+}
+
+/* Text gradient utility - adds gradient text styling */
+@utility text-gradient {
+  @apply bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent;
+}
+
+/* Card hover utility - adds hover effects to cards */
+@utility card-hover {
+  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg; /* Tailwind: smooth scale and shadow on hover */
+}
+
+/* Gradient border utility - creates a subtle gradient border effect */
+@utility gradient-border {
+  @apply relative rounded-md;        /* Apply Tailwind's relative positioning and rounded corners */
+  background: hsl(var(--card));     /* Traditional CSS: set card background color */
+  box-shadow: 
+    0 0 0 2px hsl(var(--card) / 0.3),  /* Outer glow effect */
+    inset 0 0 0 1px hsl(var(--card));  /* Inner border effect */
+}
+
+/* Cosmic button utility - creates a styled button with cosmic feel */
+@utility cosmic-button {
+  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium
+         transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
+         hover:scale-105 active:scale-95; /* Tailwind: padding, colors, hover effects, and click animation */
+}
+
+/* Star utility - creates individual star elements for background */
+@utility star {
+  @apply absolute rounded-full bg-white; /* Tailwind: positioning, shape, and color */
+  box-shadow: 0 0 10px 2px rgba(255,255,255,0.4) /* Traditional CSS: white glow effect */
+}
+
+/* Meteor utility - creates shooting star elements */
+@utility meteor {
+  @apply absolute bg-gradient-to-r from-white via-white to-transparent; /* Tailwind: positioning and gradient */
+  box-shadow: 0 0 10px 5px rgba(255,255,255,0.3); /* Traditional CSS: glow effect */
+  transform-origin: left center;    /* Traditional CSS: rotation point */
+  width: 100px;                     /* Traditional CSS: width */
+  height: 1px;                      /* Traditional CSS: height */
+}
+
+/* Root element styling - ensures the app takes full width */
+#root {
+  max-width: 100%;                  /* Take full available width */
+  margin: 0 auto;                   /* Center horizontally */
+  padding: 0;                       /* No padding */
+  text-align: center;               /* Center text content */
+}
