@@ -239,3 +239,63 @@
   padding: 0;                       /* No padding */
   text-align: center;               /* Center text content */
 }
+
+/* Basic typography for writing content (no typography plugin) */
+.prose {
+  text-align: left;
+}
+
+.prose p {
+  margin: 0 0 1rem 0;
+}
+
+.prose h1 { font-size: 2rem; line-height: 1.25; margin: 1.5rem 0 1rem; }
+.prose h2 { font-size: 1.75rem; line-height: 1.3; margin: 1.25rem 0 0.75rem; }
+.prose h3 { font-size: 1.5rem; line-height: 1.35; margin: 1rem 0 0.5rem; }
+.prose h4 { font-size: 1.25rem; line-height: 1.4; margin: 0.75rem 0 0.5rem; }
+.prose h5 { font-size: 1.125rem; line-height: 1.45; margin: 0.5rem 0 0.5rem; }
+.prose h6 { font-size: 1rem; line-height: 1.5; margin: 0.5rem 0 0.5rem; }
+
+.prose ul,
+.prose ol {
+  margin: 0 0 1rem 0;
+  padding-left: 1.25rem;
+}
+
+.prose ul { list-style: disc outside; }
+.prose ol { list-style: decimal outside; }
+.prose li { margin: 0.25rem 0; }
+
+.prose blockquote {
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-left: 4px solid hsl(var(--border));
+  color: hsl(var(--foreground) / 0.8);
+}
+
+.prose code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.95em;
+  background-color: hsl(var(--card));
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+.prose pre {
+  background-color: hsl(var(--card));
+  padding: 1rem;
+  border-radius: 8px;
+  overflow: auto;
+  margin-bottom: 1rem;
+}
+
+.prose pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

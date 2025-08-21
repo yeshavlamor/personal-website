@@ -2,8 +2,8 @@ import { BookOpen, Lightbulb, Compass } from "lucide-react";
 
 export const baseCategories = [
   { key: "all", label: "All", icon: null },
-  { key: "books", label: "Books", icon: BookOpen },
-  { key: "philosophies", label: "Philosophies", icon: Lightbulb },
+  { key: "literature", label: "Literature", icon: BookOpen },
+  { key: "tech", label: "Tech", icon: Lightbulb },
   { key: "travels", label: "Travels", icon: Compass },
 ];
 

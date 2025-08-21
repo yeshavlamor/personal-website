@@ -72,7 +72,7 @@ export const WritingsSection = () => {
 
   const filtered = useMemo(() => {
     const lower = query.trim().toLowerCase();
-    return writings
+    const result = writings
       .filter((w) =>
         activeCategory === "all" ? true : w.category === activeCategory
       )
@@ -85,6 +85,12 @@ export const WritingsSection = () => {
           : true
       )
       .sort((a, b) => (a.date < b.date ? 1 : -1));
+
+    // In the "all" tab with no search query, show only the top 3 most recent
+    if (activeCategory === "all" && !lower) {
+      return result.slice(0, 3);
+    }
+    return result;
   }, [activeCategory, query]);
 
   return (
@@ -132,9 +138,9 @@ export const WritingsSection = () => {
         )}
 
         <div className="text-center mt-12">
-          <a className="cosmic-button w-fit inline-flex items-center gap-2" href="#contact">
-            Say hello <ArrowRight size={16} />
-          </a>
+          <Link className="cosmic-button w-fit inline-flex items-center gap-2" to="/writings">
+            See all writings <ArrowRight size={16} />
+          </Link>
         </div>
       </div>
     </section>

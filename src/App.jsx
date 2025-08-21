@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { NotFound } from './pages/NotFound';
+import { AllWritings } from './pages/AllWritings';
 import { Writing } from './pages/Writing';
 import { Category } from './pages/Category';
 import { Toaster } from './ui/toaster';
@@ -11,6 +12,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
+          <Route path="/writings" element={<AllWritings />} />
           <Route path="/writings/:slug" element={<Writing />} />
           <Route path="/writings/category/:category" element={<Category />} />
           <Route path="*" element={<NotFound />} /> 

@@ -5,14 +5,12 @@ export const HeroSection = () => {
         <section 
             id="hero"
             className="relative min-h-screen flex flex-col items-center justify-center px-4"
-        > 
-            {/* Theme toggle handled globally by BouncingStar and top-right ThemeToggle */}
-            
+        >            
             <div className="container max-w-6xl mx-auto z-10">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
                     
                     {/* Text Content */}
-                    <div className="flex-1 text-center lg:text-left space-y-6">
+                    <div className="grow-[2] text-center lg:text-left space-y-6">
                         <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
                             <span className="opacity-0 animate-fade-in-delay-2"> Hello, I'm Ayesha Villamor</span>
                             {/* <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-3">
@@ -21,7 +19,7 @@ export const HeroSection = () => {
                         </h1> 
                         
                         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 opacity-0 animate-fade-in-delay-4">
-                            Based in Singapore, I dabble in a multitude of interests within the tech field. I am currently exploring the realms of Big Data and Artificial Intelligence! 
+                            Nice to meet you! I am a final year Business and Computer Science Undergraduate at Nanyang Technological University. I dabble in a multitude of interests within the tech field. I am currently exploring the realms of Big Data and Artificial Intelligence! 
                         </p>
 
                         <div className="pt-4 opacity-0 animate-fade-in-delay-5">
@@ -32,7 +30,7 @@ export const HeroSection = () => {
                     </div>
 
                     {/* Profile Picture */}
-                    <div className="flex-1 flex justify-center lg:justify-end opacity-0 animate-fade-in-delay-3">
+                    <div className="grow-[1] justify-center lg:justify-end opacity-0 animate-fade-in-delay-3">
                         <div className="relative">
                             <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
                                 <img 

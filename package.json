@@ -5,15 +5,18 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run generate-writings && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate-writings": "node scripts/generate-writings.js"
   },
   "dependencies": {
     "@radix-ui/react-toast": "^1.2.14",
     "@tailwindcss/vite": "^4.1.10",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.23.12",
+    "gray-matter": "^4.0.3",
     "lucide-react": "^0.515.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

@@ -1,3 +1,9 @@
+// ExperienceSection() is a React component - a function that returns JSX
+// It is used to display the experience section of the website
+// It is a functional component that is exported as a default export
+// It is a component that is used to display the experience section of the website
+// It is a component that is used to display the experience section of the website
+
 import { useState } from "react";
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils" 
@@ -92,10 +98,13 @@ export const ExperienceSection = () => {
     const filteredExperiences = experiences.filter(
         (experience) => experience.category === activeCategory  
     )
+
+
+    // looks like HTML, but is actually JSX
     return ( 
         <section 
             id="experience" 
-            className="py-24 px-24 relative bg-secondary/30"
+            className="py-24 px-4 md:px-24 relative bg-secondary/30"
         >
             <div className="container mx-auto max-w-5xl">
                 <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center">
@@ -122,9 +131,9 @@ export const ExperienceSection = () => {
                 </div> 
 
                 {/* Experience Cards */}
-                <div className="flex justify-center gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredExperiences.map((experience, key) => (
-                        <div key={key} className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover w-80 flex-shrink-0 relative">
+                        <div key={key} className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover w-full relative">
                             <div className="h-48 overflow-hidden">
                                 <img
                                     src={experience.image}

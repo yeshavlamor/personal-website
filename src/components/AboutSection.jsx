@@ -2,7 +2,7 @@ import { Code, User, Briefcase } from "lucide-react"
 
 export const AboutSection = () => {
     return (
-        <section id="about" className="py-24 px-24 relative">
+        <section id="about" className="py-24 px-4 md:px-24 relative">
             {" "}
             <div className="container mx-auto max-w-5xl">
                 <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
@@ -10,13 +10,14 @@ export const AboutSection = () => {
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-6">
+                    <div className="space-y-6 text-center md:text-left">
                         <h3 className="text-4xl font-semibold"> Building Tech That Matters. </h3>
                         <p className="text-xl textmuted-foreground"> 
-                            Nice to meet you! I am passionate about creating software that contributes to a meaningful societal impact. Engineering change through tech - one line of code at a time.
+                            I am passionate about creating software that contributes to a meaningful societal impact. Engineering change through tech - one line of code at a time.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
+                        {/* buttons */}
+                        {/* <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">
                             <a href="#contact" className="cosmic-button">
                                {" "}
                                Get In Touch   
@@ -28,7 +29,7 @@ export const AboutSection = () => {
                             >
                                 Download CV 
                             </a>
-                        </div>
+                        </div> */}
                     </div>
                     
                     <div className="grid grid-cols-1 gap-6">
@@ -41,9 +42,11 @@ export const AboutSection = () => {
                                     <h4 className="font-semibold text-lg"> 
                                         Machine Learning & AI
                                     </h4>
-                                    <p className="text-muted foreground"> 
-                                        Developing CNN models, fine-tuning VGG16, and implementing OCR systems with 98% accuracy in fraud detection. 
-                                    </p> 
+                                    <ul className="list-disc pl-5 text-muted-foreground">
+                                        <li>Model development and fine-tuning</li>
+                                        <li>Computer vision: image recognition, object detection, OCR systems</li>
+                                        <li>NLP: sentiment analysis, text classification</li>
+                                    </ul> 
                                 </div>
                              </div>
                         </div>
@@ -57,9 +60,11 @@ export const AboutSection = () => {
                                     <h4 className="font-semibold text-lg"> 
                                         Data Analytics & Visualization
                                     </h4>
-                                    <p className="text-muted foreground"> 
-                                        Building interactive dashboards, creating KPI visualizations, and developing automated data processing workflows. 
-                                    </p> 
+                                    <ul className="list-disc pl-5 text-muted-foreground">
+                                        <li>Dashboard development using Power BI</li>
+                                        <li>Automated data processing pipelines using Python</li>
+                                        <li>Currently exploring other automation tools such as n8n and LangChain</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +79,7 @@ export const AboutSection = () => {
                                         Full-Stack Development
                                     </h4>
                                     <p className="text-muted foreground"> 
-                                        Building web applications with React, Python, and modern frameworks. Experience with Streamlit, APIs, and responsive design.  
+                                        Building web applications with React, Python, and modern frameworks. Experience with Tailwind CSS, and modern frameworks like Next.js.  
                                     </p> 
                                 </div>
                             </div>

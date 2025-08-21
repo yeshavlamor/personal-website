@@ -1,12 +1,19 @@
 import { useMemo } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { writings } from "@/data/writings";
 import { baseCategories, isValidCategory, getCategoryLabel } from "@/data/categories";
 import WritingCard from "@/components/WritingCard";
 
 export const Category = () => {
   const { category } = useParams();
+  const navigate = useNavigate();
   const valid = isValidCategory(category);
+
+  const handleBackToHome = () => {
+    // Set flag to indicate coming from writings
+    localStorage.setItem("comingFromWritings", "true");
+    navigate("/");
+  };
 
   const list = useMemo(() => {
     if (!valid) return [];
@@ -20,7 +27,7 @@ export const Category = () => {
       <div className="min-h-screen bg-background text-foreground px-4">
         <div className="container mx-auto max-w-5xl py-24 text-center">
           <p className="text-muted-foreground">Category not found.</p>
-          <Link className="cosmic-button mt-6 inline-block" to="/">Go Home</Link>
+          <button onClick={handleBackToHome} className="cosmic-button mt-6 inline-block">Go Home</button>
         </div>
       </div>
     );
@@ -32,7 +39,7 @@ export const Category = () => {
     <section className="py-24 px-4 relative min-h-screen bg-background text-foreground">
       <div className="container mx-auto max-w-5xl">
         <div className="text-left mb-8">
-          <Link to="/" className="text-primary hover:underline">← Back to Home</Link>
+          <button onClick={handleBackToHome} className="text-primary hover:underline">← Back to Home</button>
         </div>
 
         <h1 className="text-3xl md:text-5xl font-bold mb-4 text-center">
@@ -55,9 +62,9 @@ export const Category = () => {
         )}
 
         <div className="text-center mt-12">
-          <Link className="cosmic-button w-fit inline-flex items-center gap-2" to="/">
+          <button onClick={handleBackToHome} className="cosmic-button w-fit inline-flex items-center gap-2">
             Back Home
-          </Link>
+          </button>
         </div>
       </div>
     </section>

@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { getWritingBySlug } from "@/data/writings";
 import { Calendar, ArrowLeft } from "lucide-react";
+// Rendering now uses build-time generated HTML (no runtime markdown deps)
 
 function formatDate(isoDate) {
   try {
@@ -17,7 +18,14 @@ function formatDate(isoDate) {
 
 export const Writing = () => {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const writing = getWritingBySlug(slug);
+
+  const handleBackToHome = () => {
+    // Set flag to indicate coming from writings
+    localStorage.setItem("comingFromWritings", "true");
+    navigate("/");
+  };
 
   useEffect(() => {
     if (writing?.title) {
@@ -29,9 +37,9 @@ export const Writing = () => {
     return (
       <div className="min-h-screen bg-background text-foreground px-4">
         <div className="container mx-auto max-w-3xl py-24">
-          <Link to="/" className="inline-flex items-center gap-2 text-primary hover:underline">
+          <button onClick={handleBackToHome} className="inline-flex items-center gap-2 text-primary hover:underline">
             <ArrowLeft size={18} /> Back home
-          </Link>
+          </button>
           <div className="mt-6 text-muted-foreground">Sorry, this page could not be found.</div>
         </div>
       </div>
@@ -42,9 +50,9 @@ export const Writing = () => {
     <div className="min-h-screen bg-background text-foreground px-4">
       <div className="container mx-auto max-w-3xl py-10 md:py-16">
         <div className="mb-6">
-          <Link to="/" className="inline-flex items-center gap-2 text-primary hover:underline">
+          <button onClick={handleBackToHome} className="inline-flex items-center gap-2 text-primary hover:underline">
             <ArrowLeft size={18} /> Back home
-          </Link>
+          </button>
         </div>
 
         <header className="mb-8 text-left">
@@ -67,13 +75,15 @@ export const Writing = () => {
           </div>
         </header>
 
-        <main className="prose prose-invert max-w-none text-left">
-          {writing.content?.map((paragraph, idx) => (
-            <p key={idx} className="mb-5 leading-relaxed text-[1.05rem] text-foreground/90">
-              {paragraph}
-            </p>
-          ))}
-        </main>
+        <main
+          className="prose prose-invert max-w-none text-left"
+          dangerouslySetInnerHTML={{
+            __html:
+              typeof writing.html === "string" && writing.html.trim().length > 0
+                ? writing.html
+                : (Array.isArray(writing.content) ? writing.content.map((p) => `<p>${p}</p>`).join("\n") : "")
+          }}
+        />
       </div>
     </div>
   );
