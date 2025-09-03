@@ -4,6 +4,7 @@ import { StarBackground } from "@/components/StarBackground";
 import { HeroSection } from "@/components/HeroSection"; 
 import { AboutSection } from "@/components/AboutSection";
 import { ExperienceSection } from "@/components/ExperienceSection";
+import { BeyondTechSection } from "@/components/BeyondTechSection";
 import { WritingsSection } from "@/components/WritingsSection"; 
 import { ContactSection } from "@/components/ContactSection"; 
 import { Footer } from "@/components/Footer"; 
@@ -59,9 +60,10 @@ export const Home = () => {
             <main> 
                 <HeroSection />
                 <AboutSection />
-                <ExperienceSection />
+                {/* <ExperienceSection /> */}
+                {/* <BeyondTechSection /> */}
                 <WritingsSection />
-                <ContactSection />
+                {/* <ContactSection /> */}
             </main>
 
             {/*Poetic Footer */} 

@@ -12,14 +12,16 @@ export const HeroSection = () => {
                     {/* Text Content */}
                     <div className="grow-[2] text-center lg:text-left space-y-6">
                         <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-                            <span className="opacity-0 animate-fade-in-delay-2"> Hello, I'm Ayesha Villamor</span>
+                            <span className="opacity-0 animate-fade-in-delay-2"> Hi there! I'm Ayesha Villamor</span>
                             {/* <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-3">
                                 an aspiring software developer
                             </span>  */}
                         </h1> 
                         
                         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 opacity-0 animate-fade-in-delay-4">
-                            Nice to meet you! I am a final year Business and Computer Science Undergraduate at Nanyang Technological University. I dabble in a multitude of interests within the tech field. I am currently exploring the realms of Big Data and Artificial Intelligence! 
+                            A Business and Computer Science student at NTU, with a curiosity that spans both tech and everything outside it. 
+                            Feel free to explore my personal website at your own pace, or click on the button below to go straight to my writings!
+                            (this is me trying to subtly—maybe now not so subtly—say that I tried to design this website with UI/UX principles in mind)
                         </p>
 
                         <div className="pt-4 opacity-0 animate-fade-in-delay-5">

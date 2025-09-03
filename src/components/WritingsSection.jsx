@@ -97,12 +97,12 @@ export const WritingsSection = () => {
     <section id="writings" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-5xl font-bold mb-4 text-center">
-          Writings <span className="text-primary">& Journal</span>
+          My <span className="text-primary">Writings</span>
         </h2>
 
         <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
-          A growing collection of notes on books I love, philosophies I’m testing,
-          and places that changed how I see. Simple, honest, and always evolving.
+          A personal documentation of my thoughts. Currently includes literature, philosophies,
+          and places that have changed how I see. As I grow and learn, so will this collection :)
         </p>
 
         <div className="flex flex-col items-center gap-4 md:gap-6 mb-10">

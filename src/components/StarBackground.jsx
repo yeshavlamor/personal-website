@@ -11,7 +11,7 @@ export const StarBackground = () => {
             const newElements = []
             
             // Generate stars with varied effects
-            for (let i = 0; i < 80; i++) {
+            for (let i = 0; i < 50; i++) {
                 newElements.push({
                     id: i,
                     type: 'star',
@@ -31,7 +31,7 @@ export const StarBackground = () => {
                     x: Math.random() * 120, // Random x position across the page (0-120%)
                     y: Math.random() * 60, // Random y position in top portion (0-60%)
                     animationDelay: -(Math.random() * 4), // Negative delay to start immediately
-                    animationDuration: Math.random() * 6 + 10, // 8-14 seconds duration (slower)
+                    animationDuration: Math.random() * 8 + 15, // 15-23 seconds duration (much slower)
                 })
             }
 

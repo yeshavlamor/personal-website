@@ -16,23 +16,24 @@ A beautiful piece of literature, for something as saddening as wasting opportuni
 
 > "I can never be all the people I want, and live all the lives I want. And why do I want? I want to live and feel all of the shades, tones and variations of mental and physical experience possible in my life. And I am horribly limited." 
 
-I wholeheartedly agree. I want to do many things. A person of many interests ― each interest consuming me ― just at different points in time. It was something I used to struggle with, seeing it as a flaw. In fact, it may indeed be a flaw, depending on who you ask. I used to think that I should only pursue interests that makes sense, interests that would be useful in the long run... Interests that have a high ROI, if you will. Coding, personal finance, real estate. For a period of time, I solely pursued these interests and brushed off anything else that interested me but 'didn't make sense'. With reference to the poem, I wanted to pursue a fig where I lived a life of high-income skills and businesses.
+I want to do many things. A person of many interests ― each interest consuming me ― just at different points in time. It was something I used to struggle with, seeing it as a flaw. In fact, it may indeed be a flaw, depending on who you ask. I used to think that I should only pursue interests that makes sense, interests that would be useful in the long run... Interests that have a high ROI, if you will. Coding, personal finance, real estate. For a period of time, I solely pursued these interests and brushed off anything else that interested me but '*didn't make sense*'. With reference to the poem, I wanted to pursue a fig where I lived a life of high-income skills and businesses.
 
 However, as much as I loved these interests, restricting myself to pursue these and only these eventually took a toll. I no longer saw them as something that I found joy in learning about. 
 
 This is the turning point in which I decided to branch out, and explore other interests. Since then, I have explored a multitude of other interests, from reading, gardening, sketching, volleyball, pickleball, hiking, skiing, philosophy, psychology, volunteering, tutoring and now writing. I pursued a lot of things that do not necessarily relate to each other. I took solace in that I do not have to limit myself to just one purpose, one talent, one hobby. I allowed myself to have a variety of interests, each of them as meaningful at the time I have them. Through these varying interests, I learnt more about myself, that I enjoy creating things, I enjoy the outdoors and adventure. I learnt that I found joy in giving back to society, that I do my best work when I am inspired by this purpose. 
 
-But then comes the question ― I have all these interests, which then, do I pursue? Or more relevant to me being a final year undergrad, which career path do I pursue? Because likewise, I also have a variety of interests within tech. UI/UX, front end development, big data, model development, artificial intelligence. Knowing myself, I will try to learn all these given the time. Problem is, I do not have much time in school left. Much like in the poem, I found myself sitting at the crux of the many paths I can take. Undecided, I prolong my decision and tell myself I will keep exploring each of these paths and make a better informed decision in time. But what if that time doesn't come? What if I take so long to decide I waste my opportunities?
+These varied interests spilled into my career as well. Within tech, I found myself drawn to UI/UX, Front End Development, Big Data, Model Development, and Artificial Intelligence. Knowing myself, I will try to learn all these given the time. Problem is, I do not have much time in school left. Much like in the poem, I found myself sitting at the crux of the many paths I can take. Undecided, I prolong my decision and tell myself I will keep exploring each of these paths and make a better informed decision in time. But what if that time doesn't come? What if I take so long to decide I waste my opportunities?
 
-I actually brought this up to my mentors, and I received a few different pieces of advice. 
+I actually brought this up to my mentors, and I received two very different, yet equally valueable, pieces of advice. 
 
-One told me to pursue the career path I currently have the most interest in. 
-He also cautioned me to heed the warning of overspecialisation. He told me to be careful in getting so caught up in a path that I have trouble switching paths if need be. He gave me an analogy of choosing a field, but still treading footsteps around it to dabble in related fields. 
+One encouraged me to pursue the career path I currently have the most interest in, while cautioning against overspecialisation. His advice was to commit, but with flexibility. He said that in whichever field I choose to commit to, leave room to explore the surrounding fields, so that I can easily pivot if need be. 
 
-One told me not to get so caught up with career choices. He said career switches are normal and that I do not need to have my entire career plan figured out by the time I graduate. He advised me instead to look at the bigger picture, to ask myself what kind of life I want to live and base my decisions off of there. 
+One told me not to get so caught up with career choices. He said career switches are normal, that it takes time to explore such a vast field and interests change all the time. 
 
-Both of these advices are sound indeed, both stemming from different perspectives and life experiences. 
+> "You do not need to have your entire career plan figured out by the time you graduate." 
 
-These advices are both sound indeed, but the stark difference in their nature gave me comfort in that there is no one right singular way to do things. Choosing one path does not mean abandoning the other entirely. I may not know which fig to choose yet, but I trust that when the time comes to make a decision, I will make the most out of what I know and figure it out from there. 
+Instead, he advised me to look at the bigger picture, to ask myself what kind of life I want to live, and how my career would fit into my ideal life. 
 
-How about you, what decisions have you been delaying?
+Two very wildly different pieces of advice, yet both rang true in their own ways. It gave me comfort in that there is no one right singular answer, no one right singular way to do things. Choosing one path does not mean abandoning the other entirely. I may not know which fig to choose yet, but I trust that when the time comes to make a decision, I will make the most out of what I know and figure it out from there. 
+
+How about you, which figs are you still hesitating to reach out for?

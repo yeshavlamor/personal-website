@@ -8,7 +8,8 @@
     "build": "npm run generate-writings && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "generate-writings": "node scripts/generate-writings.js"
+    "generate-writings": "node scripts/generate-writings.js",
+    "setup-chromadb": "node scripts/setup-chromadb.js"
   },
   "dependencies": {
     "@radix-ui/react-toast": "^1.2.14",
@@ -22,7 +23,12 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.6.2",
     "tailwind-merge": "^3.3.1",
-    "tailwindcss": "^4.1.10"
+    "tailwindcss": "^4.1.10",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-scroll-area": "^1.0.5",
+    "langchain": "^0.1.0",
+    "openai": "^4.0.0",
+    "chromadb": "^1.8.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",

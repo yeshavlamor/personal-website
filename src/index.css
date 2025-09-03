@@ -219,14 +219,14 @@
 
 /* Star utility - creates individual star elements for background */
 @utility star {
-  @apply absolute rounded-full bg-white; /* Tailwind: positioning, shape, and color */
-  box-shadow: 0 0 10px 2px rgba(255,255,255,0.4) /* Traditional CSS: white glow effect */
+  @apply absolute rounded-full bg-white/30; /* Tailwind: positioning, shape, and color with reduced opacity */
+  box-shadow: 0 0 10px 2px rgba(255,255,255,0.2) /* Traditional CSS: white glow effect with reduced opacity */
 }
 
 /* Meteor utility - creates shooting star elements */
 @utility meteor {
-  @apply absolute bg-gradient-to-r from-white via-white to-transparent; /* Tailwind: positioning and gradient */
-  box-shadow: 0 0 10px 5px rgba(255,255,255,0.3); /* Traditional CSS: glow effect */
+  @apply absolute bg-gradient-to-r from-white/40 via-white/30 to-transparent; /* Tailwind: positioning and gradient with reduced opacity */
+  box-shadow: 0 0 10px 5px rgba(255,255,255,0.15); /* Traditional CSS: glow effect with reduced opacity */
   transform-origin: left center;    /* Traditional CSS: rotation point */
   width: 100px;                     /* Traditional CSS: width */
   height: 1px;                      /* Traditional CSS: height */
