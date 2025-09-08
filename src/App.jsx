@@ -5,11 +5,13 @@ import { AllWritings } from './pages/AllWritings';
 import { Writing } from './pages/Writing';
 import { Category } from './pages/Category';
 import { Toaster } from './ui/toaster';
+import { ScrollToTop } from './components/ScrollToTop';
 
 function App() {
   return (
     <>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route index element={<Home />} />
           <Route path="/writings" element={<AllWritings />} />
