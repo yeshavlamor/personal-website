@@ -356,9 +356,7 @@ useEffect(() => {
 						})
 					})()}
 				</motion.div>
-                {/* author name? */}
-                {/* <div className="mt-6 sm:text-3xl md:text-4xl lg:text-5xl font-serif text-glow">―Og Mandino</div> */}
-				<div className="mt-6 text-sm opacity-60">Scramble the quote with your mouse or double tap</div>
+				<div className="mt-6 text-sm opacity-60">Scramble with your mouse or tap</div>
 			</div>
 		</section>
 	)
