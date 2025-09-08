@@ -1,18 +1,15 @@
-import { Navbar } from "../components/Navbar";
 import { ThemeToggle } from "../components/ThemeToggle";
 import { StarBackground } from "@/components/StarBackground";
 import { HeroSection } from "@/components/HeroSection"; 
-import { AboutSection } from "@/components/AboutSection";
-import { ExperienceSection } from "@/components/ExperienceSection";
-import { BeyondTechSection } from "@/components/BeyondTechSection";
 import { WritingsSection } from "@/components/WritingsSection"; 
-import { ContactSection } from "@/components/ContactSection"; 
 import { Footer } from "@/components/Footer"; 
 import IntroScramble from "@/components/IntroScramble";
 import { useEffect, useState } from "react";
 
 export const Home = () => {
-    const [shouldScrollToWritings, setShouldScrollToWritings] = useState(false);
+
+    // logic to scroll back to hero from writings section 
+    const [shouldScrollToHero, setShouldScrollToHero] = useState(false);
     const [isComingFromWritings, setIsComingFromWritings] = useState(false);
 
     useEffect(() => {
@@ -23,7 +20,7 @@ export const Home = () => {
             // Set flag to disable IntroScramble logic temporarily
             setIsComingFromWritings(true)
             // Scroll to writings section when coming from writings pages
-            setShouldScrollToWritings(true)
+            setShouldScrollToHero(true)
             // Clear the flag
             localStorage.removeItem("comingFromWritings")
             
@@ -35,40 +32,26 @@ export const Home = () => {
     }, [])
 
     useEffect(() => {
-        if (shouldScrollToWritings) {
+        if (shouldScrollToHero) {
             // Small delay to ensure DOM is ready
             setTimeout(() => {
-                const writingsSection = document.getElementById("writings")
-                if (writingsSection) {
-                    writingsSection.scrollIntoView({ behavior: "smooth" })
+                const heroSection = document.getElementById("hero")
+                if (heroSection) {
+                    heroSection.scrollIntoView({ behavior: "smooth" })
                 }
-                setShouldScrollToWritings(false)
+                setShouldScrollToHero(false)
             }, 100)
         }
-    }, [shouldScrollToWritings])
+    }, [shouldScrollToHero])
 
     return (
         <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
             <IntroScramble disabled={isComingFromWritings} />
-            {/*Theme Toggle */}
             <ThemeToggle />
-            {/*Background Effects */}
             <StarBackground />
-            {/*Navbar */}
-            <Navbar />
-            {/*Main Content */}
             <main> 
                 <HeroSection />
-                <AboutSection />
-                {/* <ExperienceSection /> */}
-                {/* <BeyondTechSection /> */}
-                <WritingsSection />
-                {/* <ContactSection /> */}
-            </main>
-
-            {/*Poetic Footer */} 
-            <Footer />
-            
+            </main>            
         </div>
     );
 };

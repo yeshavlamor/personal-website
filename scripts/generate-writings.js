@@ -110,22 +110,22 @@ function processWritings() {
           }
         }
 
-        function flushList() {
-          if (listBuffer && listBuffer.items.length) {
-            const tag = listBuffer.ordered ? 'ol' : 'ul';
-            const items = listBuffer.items
-              .map((it) => `<li>${processInline(it)}</li>`) 
-              .join('');
-            htmlParts.push(`<${tag}>${items}</${tag}>`);
-            listBuffer = null;
-          }
-        }
-
         function flushBlockquote() {
           if (blockquoteBuffer.length) {
             const text = blockquoteBuffer.join(' ');
             htmlParts.push(`<blockquote><p>${processInline(text)}</p></blockquote>`);
             blockquoteBuffer = [];
+          }
+        }
+
+        function flushList() {
+          if (listBuffer && listBuffer.items.length) {
+            const tag = listBuffer.ordered ? 'ol' : 'ul';
+            const itemsHtml = listBuffer.items
+              .map(item => `<li>${processInline(item)}</li>`)
+              .join('');
+            htmlParts.push(`<${tag}>${itemsHtml}</${tag}>`);
+            listBuffer = null;
           }
         }
 
@@ -139,8 +139,8 @@ function processWritings() {
             if (!inCode) {
               // starting code
               flushParagraph();
-              flushList();
               flushBlockquote();
+              flushList();
               inCode = true;
               codeLang = fenceMatch[1].trim();
               codeBuffer = [];
@@ -168,8 +168,8 @@ function processWritings() {
           // blank line → flush all open blocks
           if (line.trim() === '') {
             flushParagraph();
-            flushList();
             flushBlockquote();
+            flushList();
             i++;
             continue;
           }
@@ -178,8 +178,8 @@ function processWritings() {
           const heading = line.match(/^(#{1,6})\s+(.*)$/);
           if (heading) {
             flushParagraph();
-            flushList();
             flushBlockquote();
+            flushList();
             const level = heading[1].length;
             const text = heading[2];
             htmlParts.push(`<h${level}>${processInline(text)}</h${level}>`);
@@ -209,7 +209,7 @@ function processWritings() {
               listBuffer = { ordered: isOrdered, items: [] };
             }
             // If list type changes, flush and start anew
-            if (listBuffer.ordered !== isOrdered) {
+            if (listBuffer && listBuffer.ordered !== isOrdered) {
               flushList();
               listBuffer = { ordered: isOrdered, items: [] };
             }
@@ -219,14 +219,15 @@ function processWritings() {
           }
 
           // default → paragraph content
+          flushList();
           paraBuffer.push(line.trim());
           i++;
         }
 
         // flush any remaining buffers
         flushParagraph();
-        flushList();
         flushBlockquote();
+        flushList();
 
         return htmlParts.join('\n');
       }
@@ -240,7 +241,6 @@ function processWritings() {
         excerpt: data.excerpt,
         date: data.date,
         category: data.category,
-        tags: data.tags || [],
         readTimeMinutes: data.readTimeMinutes || calculateReadTime(content),
         content: paragraphs,
         markdown: content.trim(),

@@ -1,9 +1,8 @@
 ---
 title: "The Invisible Life of Addie Larue"
-excerpt: "My notes on one of my favourite books. Thought-provoking with a delightful twist in the end"
+excerpt: "My notes on one of my favourite books about perspective"
 date: "2023-08-10"
 category: "literature"
-tags: ["perspective", "freedom", "fiction"]
 readTimeMinutes: 10
 ---
 

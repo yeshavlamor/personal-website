@@ -1,9 +1,8 @@
 ---
-title: "The Bell Jar"
-excerpt: "A poem, about paths in life"
+title: "xxx"
+excerpt: "To all the different paths in life"
 date: "2025-07-21"
 category: "literature"
-tags: ["philosophy", ""]
 readTimeMinutes: 3
 ---
 

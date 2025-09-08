@@ -1,4 +1,5 @@
-import { ArrowDown } from "lucide-react"
+import { ArrowDown, Mail, Github, Linkedin } from "lucide-react"
+import { Link } from "react-router-dom"
 
 export const HeroSection = () => {
     return (
@@ -12,22 +13,61 @@ export const HeroSection = () => {
                     {/* Text Content */}
                     <div className="grow-[2] text-center lg:text-left space-y-6">
                         <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-                            <span className="opacity-0 animate-fade-in-delay-2"> Hi there! I'm Ayesha Villamor</span>
+                            <span className="opacity-0 animate-fade-in-delay-2"> Hi there! I'm Ayesha Villamor.</span>
                             {/* <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-3">
                                 an aspiring software developer
                             </span>  */}
                         </h1> 
                         
                         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 opacity-0 animate-fade-in-delay-4">
-                            A Business and Computer Science student at NTU, with a curiosity that spans both tech and everything outside it. 
-                            Feel free to explore my personal website at your own pace, or click on the button below to go straight to my writings!
-                            (this is me trying to subtly—maybe now not so subtly—say that I tried to design this website with UI/UX principles in mind)
-                        </p>
+                            With a curiousity spanning both tech and everything outside it, I am always keen on learning new things! 
+                            As of now, I am currenty exploring the intersection of AI, Big Data and Sustainability.                </p>
 
-                        <div className="pt-4 opacity-0 animate-fade-in-delay-5">
-                            <a href="#writings" className="cosmic-button">
-                                Read My Writings
-                            </a>
+                        {/* writings button */}
+                        <div className="pt-4 opacity-0 animate-fade-in-delay-5 space-y-4">
+                            <div className="flex flex-col sm:flex-row items-center gap-4">
+                                <Link 
+                                    to="/writings" 
+                                    className="px-6 py-3 rounded-full bg-primary/10 text-primary font-medium 
+                                             hover:bg-primary/90 transition-all duration-200 
+                                             hover:shadow-xl hover:shadow-primary/25
+                                             transform hover:scale-105 active:scale-95
+                                             border-2 hover:border-primary/80"
+                                >
+                                    Writings
+                                </Link>
+                                
+                                {/* Contact Icons */}
+                                <div className="flex items-center gap-4">
+                                    <a
+                                        href="https://www.linkedin.com/in/ayesha-villamor"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors duration-200 group"
+                                        aria-label="LinkedIn Profile"
+                                    >
+                                        <Linkedin className="h-6 w-6 text-primary group-hover:scale-110 transition-transform duration-200" />
+                                    </a>
+                                    
+                                    <a
+                                        href="https://github.com/yeshavlamor"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors duration-200 group"
+                                        aria-label="GitHub Profile"
+                                    >
+                                        <Github className="h-6 w-6 text-primary group-hover:scale-110 transition-transform duration-200" />
+                                    </a>
+                                    
+                                    <a
+                                        href="mailto:ayeshavlamor@gmail.com"
+                                        className="p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors duration-200 group"
+                                        aria-label="Send Email"
+                                    >
+                                        <Mail className="h-6 w-6 text-primary group-hover:scale-110 transition-transform duration-200" />
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -46,11 +86,6 @@ export const HeroSection = () => {
                     </div>
                 </div>
             </div> 
-
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce opacity-0 animate-fade-in-delay-6">
-                <span className="text-sm text-muted-foreground mb-2"> Scroll </span>
-                <ArrowDown className="h-5 w-5 text-primary" />
-            </div>
     </section>
     );
 };

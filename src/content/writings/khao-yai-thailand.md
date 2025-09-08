@@ -1,25 +1,24 @@
 ---
 title: "Khao Yai, Thailand"
-excerpt: "My adventures in Khao Yai, and more importantly — the people who gave it meaning"
+excerpt: "My adventures in Khao Yai, and more importantly, the people who gave it meaning"
 date: "2024-08-12"
 category: "travels"
-tags: ["thailand", "people"]
 readTimeMinutes: 5
 ---
 
 >"I-cha!, you know how to play poker mai?" 
 
-My head swivelled to my right. 
+My head swivelled to the right. 
 
 *I-cha.* 
 
 P'X, my local friend, always had his own unique way of saying my name, owing to the Thai accent. 
 
->"Hmmm?" 
+>"Err a little bit. You have the cards?" 
 
-I found myself standing outside the front door of his family home, an area which beared semblance of an outdoor porch. It was a large area, covered by a low roof to shade from the sun, which in Thailand, was always unforgiving. Tables and chairs scattered all around the porch, his family members moving about. We were at his vacation home. His family from all over gathered here in Khao Yai for a reunion, and he kindly invited me along with some other Singaporean friends to their home in Khao Yai. I found myself across the porch to where P'X was standing at a makeshift table. Glancing down, the table was littered with cards and cups, one for each of the aunties seated around the table. They were all looking up at me now. A mixture of curiosity and anticipation on their faces. 
+I found myself standing outside the front door of his family home, an area bearing semblance of an outdoor porch. The space was vast, covered by a low roof to shade from Thailand's unforgiving sun. Tables and chairs scattered all around the porch, his family members moving about. We were at his vacation home. His family from all over gathered here in Khao Yai for a reunion, and he kindly invited me along with some other Singaporean friends to their home in Khao Yai. I found myself across the porch to where P'X was standing at a makeshift table. Glancing down, the table was littered with cards and cups, one for each of the aunties seated around the table. They were all looking up at me now. A mixture of curiosity and anticipation on their faces. 
 
->"Hello, my name is Ayesha" 
+>"Sawadee ka, my name is Ayesha" 
 
 I smiled and greeted them with a slight bow. Respect was a big thing in Thailand, and I always made a point to show respect, especially towards elders.   
 
@@ -31,8 +30,8 @@ Further down towards the house gates lay an open area with no shelter, where we 
 
 Khao Yai was one of my most memorable places in Thailand not beacuse it boasted the most beautiful sceneries or had the most extravagant culture. I have laid eyes on more novel attractions, more remarkable waterfalls, grander mountains. Yet, Khao Yai retains a soft spot in my heart, all beacuse of the people I experienced it with. My local friends proudly showed me around. Drove us in questionable vehicles (with my friend managing to fall off whilst we were moving. oops.) Little Thai tidbits of culture and language every now and then. Even their family would jump in to try and teach us too. All with a warm smile on their face. 
 
-*I-cha*. A completely butchered pronounciation of my name, but it didn't bother me at all. In fact, I marvelled at the fact that I was even lucky enugh to be in such a position. A foreign country, foreign friends who have welcomed me into their family. A unqiue pronounciation — which the rest of his family adopted— that will stick with me forever. A token of kindness. Of hospitality. Of friendship that transcends beyond langauge barriers.
+*I-cha*. A completely butchered pronounciation of my name, but it didn't bother me at all. In fact, I marvelled at the fact that I was even lucky enugh to be in such a position. A foreign country, foreign friends who have welcomed me into their family. A unqiue pronounciation — which the rest of his family adopted— that is now a token of kindness. Of hospitality. Of friendship that transcends beyond langauge barriers.
 
-Khop khun kha, P'X and P'Ung. Thank you for everything.
+Khop khun kha, P'X and P'Ung.
 
 ![Project image](/writings/KY_1.jpg)
