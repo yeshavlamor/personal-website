@@ -4,7 +4,7 @@ export const Footer = () => {
                 <div className="container mx-auto text-center">
                     <div className="bg-card p-8 max-w-2xl mx-auto rounded-lg shadow-lg">
                         <p className="text-sm text-foreground/60 mt-6">
-                            © 2025 Ayesha Villamor 
+                            © 2025 Ayesha Marie Villamor 
                         </p>
                     </div>
                 </div>
