@@ -16,7 +16,7 @@ P'X, my local friend, always had his own unique way of saying my name, owing to 
 
 >"Err a little bit. You have the cards?" 
 
-I found myself standing outside the front door of his family home, an area bearing semblance of an outdoor porch. The space was vast, covered by a low roof to shade from Thailand's unforgiving sun. Tables and chairs scattered all around the porch, his family members moving about. We were at his vacation home. His family from all over gathered here in Khao Yai for a reunion, and he kindly invited me along with some other Singaporean friends to their home in Khao Yai. I found myself across the porch to where P'X was standing at a makeshift table. Glancing down, the table was littered with cards and cups, one for each of the aunties seated around the table. They were all looking up at me now. A mixture of curiosity and anticipation on their faces. 
+I found myself standing outside the front door of his family home, an area bearing semblance of an outdoor porch. The space was vast, covered by a low roof to shade from Thailand's unforgiving sun. Tables and chairs scattered all around, his family members moving about. We were at his vacation home. His family from all over gathered here in Khao Yai for a reunion, and he kindly invited me along with some other Singaporean friends to their home in Khao Yai. I found myself across the porch to where P'X was standing at a makeshift table. Glancing down, the table was littered with cards and cups, one for each of the aunties seated around the table. They were all looking up at me now. A mixture of curiosity and anticipation on their faces. 
 
 >"Sawadee ka, my name is Ayesha" 
 

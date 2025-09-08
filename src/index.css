@@ -299,3 +299,14 @@
   height: auto;
   border-radius: 8px;
 }
+
+/* Link styling inside writing content */
+.prose a {
+  color: #2563eb; /* blue */
+  text-decoration: underline;
+}
+
+.prose a:hover {
+  color: #1d4ed8; /* darker blue on hover */
+  text-decoration: underline;
+}
