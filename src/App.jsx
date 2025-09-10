@@ -6,6 +6,7 @@ import { Writing } from './pages/Writing';
 import { Category } from './pages/Category';
 import { Toaster } from './ui/toaster';
 import { ScrollToTop } from './components/ScrollToTop';
+import { Analytics } from "@vercel/analytics/next"
 
 function App() {
   return (

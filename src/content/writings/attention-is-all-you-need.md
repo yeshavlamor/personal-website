@@ -1,7 +1,7 @@
 ---
 title: "Attention is all you need"
 excerpt: "My notes on the Transformers Architecture"
-date: "2025-08-18"
+date: "2025-06-18"
 category: "tech"
 ---
 

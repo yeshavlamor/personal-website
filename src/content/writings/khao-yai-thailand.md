@@ -1,7 +1,7 @@
 ---
 title: "Khao Yai, Thailand"
 excerpt: "My adventures in Khao Yai, and more importantly, the people who gave it meaning"
-date: "2024-08-12"
+date: "2024-09-12"
 category: "travels"
 readTimeMinutes: 5
 ---
