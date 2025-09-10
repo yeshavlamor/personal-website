@@ -90,14 +90,14 @@ export const AllWritings = () => {
       <section className="py-24 px-4 relative min-h-screen">
         <div className="container mx-auto max-w-5xl">
           <div className="text-left mb-8">
-            <button onClick={handleBackToHome} className="text-primary hover:underline">← Back to Home</button>
+            <button onClick={handleBackToHome} className="text-primary hover:underline text-sm md:text-base">← Back to Home</button>
           </div>
 
           <h1 className="text-3xl md:text-5xl font-bold mb-4 text-center">
             My <span className="text-primary">Writings</span>
           </h1>
           <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
-            A personal documentation of my thoughts. Currently includes literature, philosophies,
+            A personal documentation of my thoughts. Currently includes literature, tech,
             and places that have changed how I see. As I grow and learn, so will this collection :)
           </p>
 
