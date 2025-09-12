@@ -10,6 +10,14 @@ export const IntroScramble = ({
     restoreDurationMs = 1600, // Duration before letters return to original position
     disabled = false, // Flag to disable scramble logic when coming from writings
 }) => {
+    // Detect mobile device for timing adjustments
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                     window.innerWidth <= 768 || 
+                     ('ontouchstart' in window)
+    
+    // Adjust timing for mobile devices
+    const mobileFreezeBeforeScrollMs = isMobile ? 1500 : freezeBeforeScrollMs
+    const mobileRestoreDurationMs = isMobile ? 1200 : restoreDurationMs
 	const containerRef = useRef(null) // Reference to quote container
 	const lettersRef = useRef([]) // Reference to array of individual letters
 	const rafRef = useRef(null)
@@ -17,7 +25,8 @@ export const IntroScramble = ({
     const [progress, setProgress] = useState(0) // Track percentage of letters scrambled
 	const [hasCompleted, setHasCompleted] = useState(false) // Flag to track whether scramble is complete
     const [scrambleCount, setScrambleCount] = useState(0)
-    const [isHoveringQuote, setIsHoveringQuote] = useState(false) // Track if user mouse is hovering over quotoe
+    const [isHoveringQuote, setIsHoveringQuote] = useState(false) // Track if user mouse is hovering over quote
+    const [isTouchingQuote, setIsTouchingQuote] = useState(false) // Track if user is touching the quote on mobile
     const [isFreezing, setIsFreezing] = useState(false) // State of letters. Frozen before scroll animation
     const [isRestoring, setIsRestoring] = useState(false) // State of letters. Restored to original position before animation
     const [isIntentionalScramble, setIsIntentionalScramble] = useState(false)
@@ -40,9 +49,21 @@ export const IntroScramble = ({
     const activatedRef = useRef(characters.map(() => false)) // Array of booleans to track which letters are activated
     const moveFramePendingRef = useRef(false) // Flag to prevent multiple mouse move events from being processed simultaneously
 
-	// Adjust pre-computed scramble distance based on screen size
+	// Adjust pre-computed scramble distance based on screen size and device type
 	const getResponsiveScrambleDistance = () => {
 		const screenWidth = window.innerWidth
+		const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+		                 window.innerWidth <= 768 || 
+		                 ('ontouchstart' in window)
+		
+		// Mobile devices get slightly larger touch targets for better usability
+		if (isMobile) {
+			if (screenWidth < 640) return 100     // sm: 100px (increased from 80)
+			if (screenWidth < 768) return 120     // md: 120px (increased from 100)
+			return 140                            // lg+: 140px (reduced from larger values)
+		}
+		
+		// Desktop values
 		if (screenWidth < 640) return 80      // sm: 80px
 		if (screenWidth < 768) return 100    // md: 100px  
 		if (screenWidth < 1024) return 140   // lg: 140px
@@ -147,14 +168,21 @@ export const IntroScramble = ({
 
     useEffect(() => {
         if (hasCompleted || isFreezing || isRestoring || disabled) return
-        const handleMouseMove = (e) => {
-            setMouse({ x: e.clientX, y: e.clientY })
+        
+        const handlePointerMove = (e) => {
+            // Get coordinates from either mouse or touch event
+            const clientX = e.clientX || (e.touches && e.touches[0]?.clientX)
+            const clientY = e.clientY || (e.touches && e.touches[0]?.clientY)
+            
+            if (clientX === undefined || clientY === undefined) return
+            
+            setMouse({ x: clientX, y: clientY })
             if (moveFramePendingRef.current) return
             moveFramePendingRef.current = true
             requestAnimationFrame(() => {
                 moveFramePendingRef.current = false
                 if (originalCenters.length === 0) return
-                // Only process mouse movements when in quote section
+                // Only process movements when in quote section
                 if (!isInQuoteSection) return
                 
                 // Use responsive scramble distance
@@ -167,8 +195,8 @@ export const IntroScramble = ({
                 let activatedCount = 0
                 for (let i = 0; i < originalCenters.length; i++) {
                     const c = originalCenters[i]
-                    const dx = c.x - e.clientX
-                    const dy = c.y - e.clientY
+                    const dx = c.x - clientX
+                    const dy = c.y - clientY
                     if (dx * dx + dy * dy <= r2) {
                         if (!act[i]) {
                             act[i] = true
@@ -187,8 +215,15 @@ export const IntroScramble = ({
                 }
             })
         }
-        window.addEventListener("mousemove", handleMouseMove)
-        return () => window.removeEventListener("mousemove", handleMouseMove)
+        
+        // Add both mouse and touch event listeners
+        window.addEventListener("mousemove", handlePointerMove)
+        window.addEventListener("touchmove", handlePointerMove, { passive: true })
+        
+        return () => {
+            window.removeEventListener("mousemove", handlePointerMove)
+            window.removeEventListener("touchmove", handlePointerMove)
+        }
     }, [hasCompleted, isFreezing, isRestoring, originalCenters, isInQuoteSection])
 
     // No physics loop; letters snap to precomputed targets when activated
@@ -197,7 +232,9 @@ export const IntroScramble = ({
 useEffect(() => {
     if (hasCompleted || disabled) return
     // Only trigger completion if user is actually in the quote section
-    if (isInQuoteSection && ((!isHoveringQuote || progress >= 1) && progress >= scrambleThreshold)) {
+    // For mobile: use touch state; for desktop: use hover state
+    const isInteracting = isTouchingQuote || isHoveringQuote
+    if (isInQuoteSection && ((!isInteracting || progress >= 1) && progress >= scrambleThreshold)) {
         if (!isFreezing && !isRestoring) {
             setIsFreezing(true)
             preScrollTimerRef.current = setTimeout(() => {
@@ -223,13 +260,50 @@ useEffect(() => {
                             isAnimatingScrollRef.current = true
                             const startY = window.scrollY
                             const endY = hero.getBoundingClientRect().top + window.scrollY
-                            const duration = 2000
+                            
+                            // Detect if device is mobile for different scroll behavior
+                            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                                           window.innerWidth <= 768 || 
+                                           ('ontouchstart' in window)
+                            
+                            // Use different duration and easing for mobile
+                            const duration = isMobile ? 1500 : 2000
                             const startTime = performance.now()
+                            
+                            // Use smoother easing for mobile
                             const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
+                            const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4)
+                            const easingFunction = isMobile ? easeOutQuart : easeInOutCubic
+                            
                             const tick = (now) => {
                                 const elapsed = now - startTime
                                 const t = Math.min(1, elapsed / duration)
-                                const eased = easeInOutCubic(t)
+                                const eased = easingFunction(t)
+                                
+                                // Use different scroll method for mobile
+                                if (isMobile) {
+                                    // For mobile, use scrollTo with behavior smooth for better performance
+                                    if (t < 1) {
+                                        window.scrollTo(0, startY + (endY - startY) * eased)
+                                        requestAnimationFrame(tick)
+                                    } else {
+                                        // Final scroll to ensure exact position
+                                        window.scrollTo(0, endY)
+                                        isAnimatingScrollRef.current = false
+                                        // Always check current theme and change to dark if in light mode
+                                        const isCurrentlyLight = !document.documentElement.classList.contains("dark")
+                                        if (isCurrentlyLight) {
+                                            setTimeout(() => {
+                                                try {
+                                                    document.documentElement.classList.add("dark")
+                                                    localStorage.setItem("theme", "dark")
+                                                    window.dispatchEvent(new Event("themeChanged"))
+                                                } catch {}
+                                            }, themeSwitchDelayMs)
+                                        }
+                                    }
+                                } else {
+                                    // Desktop behavior
                                 window.scrollTo(0, startY + (endY - startY) * eased)
                                 if (t < 1) {
                                     requestAnimationFrame(tick)
@@ -246,30 +320,30 @@ useEffect(() => {
                                             } catch {}
                                         }, themeSwitchDelayMs)
                                     }
-                                    // If already in dark mode, no theme change needed
+                                    }
                                 }
                             }
                             requestAnimationFrame(tick)
                         }
                     } catch {}
-                }, restoreDurationMs)
-            }, freezeBeforeScrollMs)
+                }, mobileRestoreDurationMs)
+            }, mobileFreezeBeforeScrollMs)
         }
     }
     return () => {
-        // Cancel freeze only if user hovers back before full scramble or threshold
-        if (preScrollTimerRef.current && ((isHoveringQuote && progress < 1) || progress < scrambleThreshold)) {
+        // Cancel freeze only if user interacts back before full scramble or threshold
+        if (preScrollTimerRef.current && ((isInteracting && progress < 1) || progress < scrambleThreshold)) {
             clearTimeout(preScrollTimerRef.current)
             preScrollTimerRef.current = null
             setIsFreezing(false)
         }
-        if (restoreTimerRef.current && ((isHoveringQuote && progress < 1) || progress < scrambleThreshold)) {
+        if (restoreTimerRef.current && ((isInteracting && progress < 1) || progress < scrambleThreshold)) {
             clearTimeout(restoreTimerRef.current)
             restoreTimerRef.current = null
             setIsRestoring(false)
         }
     }
-}, [isHoveringQuote, progress, scrambleThreshold, hasCompleted, scrambleCount, isInQuoteSection, freezeBeforeScrollMs, restoreDurationMs, themeSwitchDelayMs])
+}, [isHoveringQuote, isTouchingQuote, progress, scrambleThreshold, hasCompleted, scrambleCount, isInQuoteSection, mobileFreezeBeforeScrollMs, mobileRestoreDurationMs, themeSwitchDelayMs])
 
 	// Detect when user is in the quote section
 	useEffect(() => {
@@ -291,15 +365,16 @@ useEffect(() => {
 	// Reset scramble state only when all conditions are met
 	useEffect(() => {
 		// Check 1: User scrolled back to quote section
-		// Check 2: User is hovering over quote section (indicating intent to interact)
+		// Check 2: User is interacting with quote section (hovering on desktop or touching on mobile)
 		// Check 3: Quote has been completed before
 		// Check 4: User is not currently in a scramble animation
 		// Check 5: User has started scrambling (progress > 0) - indicating active interaction
 		// Check 6: User is not coming from writings pages (disabled state)
-		// Check 7: User has been hovering for at least a short time (debounce)
+		// Check 7: User has been interacting for at least a short time (debounce)
+		const isInteracting = isTouchingQuote || isHoveringQuote
 		if (hasCompleted && 
 			isInQuoteSection && 
-			isHoveringQuote && 
+			isInteracting && 
 			!isFreezing && 
 			!isRestoring && 
 			progress > 0 && 
@@ -308,7 +383,7 @@ useEffect(() => {
 			// Add a small delay to ensure this is intentional interaction
 			const resetTimer = setTimeout(() => {
 				// Double-check conditions after delay
-				if (hasCompleted && isInQuoteSection && isHoveringQuote && !isFreezing && !isRestoring && progress > 0 && !disabled) {
+				if (hasCompleted && isInQuoteSection && isInteracting && !isFreezing && !isRestoring && progress > 0 && !disabled) {
 					// User intentionally scrolled to quote section and is actively scrambling
 					// Reset the scramble state to allow re-scrambling
 					activatedRef.current = activatedRef.current.map(() => false)
@@ -321,11 +396,17 @@ useEffect(() => {
 			
 			return () => clearTimeout(resetTimer)
 		}
-	}, [hasCompleted, isInQuoteSection, isHoveringQuote, isFreezing, isRestoring, progress, disabled])
+	}, [hasCompleted, isInQuoteSection, isHoveringQuote, isTouchingQuote, isFreezing, isRestoring, progress, disabled])
 
   return (
 		<section id="quote" ref={containerRef} className="relative min-h-screen flex items-center justify-center bg-background text-foreground">
-			<div className="relative max-w-5xl p-6 select-none text-center" onMouseEnter={() => setIsHoveringQuote(true)} onMouseLeave={() => setIsHoveringQuote(false)}>
+			<div 
+				className="relative max-w-5xl p-6 select-none text-center" 
+				onMouseEnter={() => setIsHoveringQuote(true)} 
+				onMouseLeave={() => setIsHoveringQuote(false)}
+				onTouchStart={() => setIsTouchingQuote(true)}
+				onTouchEnd={() => setIsTouchingQuote(false)}
+			>
 				<motion.div className="leading-relaxed">
 					{(() => {
 						let li = 0
@@ -356,7 +437,7 @@ useEffect(() => {
 						})
 					})()}
 				</motion.div>
-				<div className="mt-6 text-sm opacity-60">Tap on the words to scramble them</div>
+				<div className="mt-6 text-sm opacity-60">Touch or hover over the words to scramble them</div>
 			</div>
 		</section>
 	)
