@@ -30,7 +30,7 @@ Further down towards the house gates lay an open area, where we later on sit aro
 
 Khao Yai was one of my most memorable places in Thailand not because it boasted the most beautiful sceneries or had the most extravagant culture. I have laid eyes on more novel attractions, more remarkable waterfalls, grander mountains. Yet, Khao Yai retains a soft spot in my heart, all because of the people I experienced it with. My local friends proudly showed me around. Drove us in questionable vehicles (with my friend managing to fall off whilst we were moving. oops.) Little Thai tidbits of culture and language every now and then. Even their family would jump in to try and teach us too. All with a warm smile on their face. 
 
-*I-cha*. A completely butchered pronunciation of my name, but it didn't bother me at all. In fact, I marvelled at the fact that I was even lucky enough to be in such a position. A foreign country, foreign friends who have welcomed me into their family. A unique pronunciation —which the rest of his family adopted— that is now a token of kindness. Of hospitality. Of friendship that transcends beyond language barriers.
+*I-cha*. A completely butchered pronunciation of my name, but it didn't bother me at all. In fact, I marvelled at the fact that I was even lucky enough to be in such a position. A foreign country, foreign friends who have welcomed me into their family. A unique pronunciation—which the rest of his family also adopted—now a token of friendship that transcends beyond language barriers.
 
 Khop khun kha, P'X and P'Ung.
 
