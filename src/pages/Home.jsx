@@ -1,9 +1,7 @@
 import { ThemeToggle } from "../components/ThemeToggle";
-import { StarBackground } from "@/components/StarBackground";
-import { HeroSection } from "@/components/HeroSection"; 
-import { WritingsSection } from "@/components/WritingsSection"; 
-import { Footer } from "@/components/Footer"; 
-import IntroScramble from "@/components/IntroScramble";
+import { StarBackground } from "@/components/StarBackground"; 
+import { IntroScramble } from "@/components/IntroScramble";
+import { HeroSection } from "@/components/HeroSection";
 import { useEffect, useState } from "react";
 
 export const Home = () => {
@@ -50,7 +48,7 @@ export const Home = () => {
             <ThemeToggle />
             <StarBackground />
             <main> 
-                <HeroSection />
+                <HeroSection />                
             </main>            
         </div>
     );

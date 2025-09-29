@@ -5,7 +5,7 @@ import { baseCategories, isValidCategory, getCategoryLabel } from "@/data/catego
 import WritingCard from "@/components/WritingCard";
 
 export const Category = () => {
-  const { category } = useParams();
+  const { category } = useParams(); // extract category from url 
   const navigate = useNavigate();
   const valid = isValidCategory(category);
 
@@ -15,6 +15,7 @@ export const Category = () => {
     navigate("/");
   };
 
+  // take all writings, filter to specific category, and sort by newest date
   const list = useMemo(() => {
     if (!valid) return [];
     return writings
@@ -22,6 +23,7 @@ export const Category = () => {
       .sort((a, b) => (a.date < b.date ? 1 : -1));
   }, [category, valid]);
 
+  // error handling for invalid urls 
   if (!valid) {
     return (
       <div className="min-h-screen bg-background text-foreground px-4">
