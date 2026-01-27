@@ -234,6 +234,8 @@ function processWritings() {
 
       const html = renderMarkdownToHtml(content);
 
+      // Include all frontmatter fields (e.g. galleryImages) by spreading `data`.
+      // Explicit fields are kept/derived; data can provide optional extra fields.
       return {
         id: slug,
         slug: slug,
@@ -245,6 +247,7 @@ function processWritings() {
         content: paragraphs,
         markdown: content.trim(),
         html,
+        ...data,
       };
     });
 

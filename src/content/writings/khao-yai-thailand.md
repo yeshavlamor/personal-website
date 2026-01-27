@@ -4,6 +4,12 @@ excerpt: "My adventures in Khao Yai, and more importantly, the people who gave i
 date: "2024-09-12"
 category: "travels"
 readTimeMinutes: 5
+galleryImages:
+  - /writings/KY_1.jpg
+  - /writings/KY_2.jpg
+  - /writings/KY_3.jpg
+  - /writings/KY_4.jpg
+  - /writings/KY_5.jpg
 ---
 
 >"I-cha!, you know how to play poker mai?" 
@@ -33,5 +39,3 @@ Khao Yai was one of my most memorable places in Thailand not because it boasted 
 *I-cha*. A completely butchered pronunciation of my name, but it didn't bother me at all. In fact, I marvelled at the fact that I was even lucky enough to be in such a position. A foreign country, foreign friends who have welcomed me into their family. A unique pronunciation—which the rest of his family also adopted—now a token of friendship that transcends beyond language barriers.
 
 Khop khun kha, P'X and P'Ung.
-
-![Project image](/writings/KY_1.jpg)

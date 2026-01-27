@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { getWritingBySlug } from "@/data/writings";
+import GalleryCarousel from "@/components/GalleryCarousel";
 import { Calendar, ArrowLeft } from "lucide-react";
 // Rendering now uses build-time generated HTML (no runtime markdown deps)
 
@@ -75,15 +76,51 @@ export const Writing = () => {
           </div>
         </header>
 
-        <main
-          className="prose prose-invert max-w-none text-left"
-          dangerouslySetInnerHTML={{
-            __html:
-              typeof writing.html === "string" && writing.html.trim().length > 0
-                ? writing.html
-                : (Array.isArray(writing.content) ? writing.content.map((p) => `<p>${p}</p>`).join("\n") : "")
-          }}
-        />
+        {/*
+          The article HTML is pre-rendered at build time. We support two gallery placement modes:
+          1) Inline: place the marker `%GALLERY%` on its own line in the markdown where you want
+             the carousel to appear. The generator will preserve the token in the generated HTML
+             (it becomes part of a paragraph). We detect it below and split the HTML so we can
+             render the React `GalleryCarousel` in the exact spot.
+          2) Bottom: if no marker is present, the carousel is rendered after the article (current behavior).
+        */}
+
+        {(() => {
+          const htmlSource =
+            typeof writing.html === "string" && writing.html.trim().length > 0
+              ? writing.html
+              : (Array.isArray(writing.content) ? writing.content.map((p) => `<p>${p}</p>`).join("\n") : "");
+
+          const PLACEHOLDER = "%GALLERY%";
+
+          if (htmlSource.includes(PLACEHOLDER)) {
+            const [before, after] = htmlSource.split(PLACEHOLDER);
+            return (
+              <>
+                <div className="prose prose-invert max-w-none text-left" dangerouslySetInnerHTML={{ __html: before }} />
+                {Array.isArray(writing.galleryImages) && writing.galleryImages.length > 0 && (
+                  <div className="mb-6">
+                    <GalleryCarousel images={writing.galleryImages} />
+                  </div>
+                )}
+                <div className="prose prose-invert max-w-none text-left" dangerouslySetInnerHTML={{ __html: after }} />
+              </>
+            );
+          }
+
+          // Default: render article then (optionally) the gallery at the bottom
+          return (
+            <>
+              <main className="prose prose-invert max-w-none text-left" dangerouslySetInnerHTML={{ __html: htmlSource }} />
+              {Array.isArray(writing.galleryImages) && writing.galleryImages.length > 0 && (
+                <div className="mt-6">
+                  <GalleryCarousel images={writing.galleryImages} />
+                </div>
+              )}
+            </>
+          );
+        })()}
+
       </div>
     </div>
   );
