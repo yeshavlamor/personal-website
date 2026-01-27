@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Search, ArrowRight } from "lucide-react";
+import { Search, ArrowRight, ArrowLeft } from "lucide-react";
 import { writings } from "@/data/writings";
 import { baseCategories } from "@/data/categories";
 import WritingCard from "@/components/WritingCard";
@@ -89,8 +89,23 @@ export const AllWritings = () => {
       
       <section className="py-24 px-4 relative min-h-screen">
         <div className="container mx-auto max-w-5xl">
-          <div className="text-left mb-8">
-            <button onClick={handleBackToHome} className="text-primary hover:underline text-sm md:text-base">← Back to Home</button>
+          {/* Back button: fixed on small screens (aligns with ThemeToggle), in-flow on md+ */}
+          <div className="md:static">
+            {/* Mobile: fixed top-left */}
+            <button
+              onClick={handleBackToHome}
+              aria-label="Back to home"
+              className="block md:hidden fixed top-5 left-5 z-50 p-2 rounded-full bg-card/80 backdrop-blur-sm border border-primary/20 text-primary hover:opacity-90"
+            >
+              <ArrowLeft size={18} />
+            </button>
+
+            {/* Desktop/tablet: in-flow, aligned with content */}
+            <div className="hidden md:block mb-8">
+              <button onClick={handleBackToHome} className="inline-flex items-center gap-2 text-primary hover:underline">
+                <ArrowLeft size={18} /> Back home
+              </button>
+            </div>
           </div>
 
           <h1 className="text-3xl md:text-5xl font-bold mb-4 text-center">

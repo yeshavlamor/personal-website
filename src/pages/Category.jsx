@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { writings } from "@/data/writings";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { baseCategories, isValidCategory, getCategoryLabel } from "@/data/categories";
 import WritingCard from "@/components/WritingCard";
 
@@ -27,6 +28,7 @@ export const Category = () => {
   if (!valid) {
     return (
       <div className="min-h-screen bg-background text-foreground px-4">
+        <ThemeToggle />
         <div className="container mx-auto max-w-5xl py-24 text-center">
           <p className="text-muted-foreground">Category not found.</p>
           <button onClick={handleBackToHome} className="cosmic-button mt-6 inline-block">Go Home</button>
@@ -39,6 +41,7 @@ export const Category = () => {
 
   return (
     <section className="py-24 px-4 relative min-h-screen bg-background text-foreground">
+      <ThemeToggle />
       <div className="container mx-auto max-w-5xl">
         <div className="text-left mb-8">
           <button onClick={handleBackToHome} className="text-primary hover:underline">← Back to Home</button>

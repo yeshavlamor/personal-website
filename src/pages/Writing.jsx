@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { getWritingBySlug } from "@/data/writings";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import GalleryCarousel from "@/components/GalleryCarousel";
 import { Calendar, ArrowLeft } from "lucide-react";
 // Rendering now uses build-time generated HTML (no runtime markdown deps)
@@ -37,10 +38,25 @@ export const Writing = () => {
   if (!writing) {
     return (
       <div className="min-h-screen bg-background text-foreground px-4">
+        <ThemeToggle />
         <div className="container mx-auto max-w-3xl py-24">
-          <button onClick={handleBackToHome} className="inline-flex items-center gap-2 text-primary hover:underline">
-            <ArrowLeft size={18} /> Back home
-          </button>
+          {/* Back button: fixed on small screens, in-flow on md+ */}
+          <div className="md:static">
+            <button
+              onClick={handleBackToHome}
+              aria-label="Back to home"
+              className="block md:hidden fixed top-5 left-5 z-50 p-2 rounded-full bg-card/80 backdrop-blur-sm border border-primary/20 text-primary hover:opacity-90"
+            >
+              <ArrowLeft size={18} />
+            </button>
+
+              <div className="hidden md:block mb-8">
+                <button onClick={handleBackToHome} className="inline-flex items-center gap-2 text-primary hover:underline">
+                  <ArrowLeft size={18} /> Back home
+                </button>
+              </div>
+          </div>
+
           <div className="mt-6 text-muted-foreground">Sorry, this page could not be found.</div>
         </div>
       </div>
@@ -49,11 +65,23 @@ export const Writing = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground px-4">
-      <div className="container mx-auto max-w-3xl py-10 md:py-16">
-        <div className="mb-6">
-          <button onClick={handleBackToHome} className="inline-flex items-center gap-2 text-primary hover:underline">
-            <ArrowLeft size={18} /> Back home
+      <ThemeToggle />
+  <div className="container mx-auto max-w-3xl pt-20 pb-10 md:pt-16 md:pb-16">
+        {/* Back button: fixed on small screens, in-flow on md+ */}
+        <div className="md:static">
+          <button
+            onClick={handleBackToHome}
+            aria-label="Back to home"
+            className="block md:hidden fixed top-5 left-5 z-50 p-2 rounded-full bg-card/80 backdrop-blur-sm border border-primary/20 text-primary hover:opacity-90"
+          >
+            <ArrowLeft size={18} />
           </button>
+
+          <div className="hidden md:block mb-8">
+            <button onClick={handleBackToHome} className="inline-flex items-center gap-2 text-primary hover:underline">
+              <ArrowLeft size={18} /> Back home
+            </button>
+          </div>
         </div>
 
         <header className="mb-8 text-left">
@@ -76,51 +104,21 @@ export const Writing = () => {
           </div>
         </header>
 
-        {/*
-          The article HTML is pre-rendered at build time. We support two gallery placement modes:
-          1) Inline: place the marker `%GALLERY%` on its own line in the markdown where you want
-             the carousel to appear. The generator will preserve the token in the generated HTML
-             (it becomes part of a paragraph). We detect it below and split the HTML so we can
-             render the React `GalleryCarousel` in the exact spot.
-          2) Bottom: if no marker is present, the carousel is rendered after the article (current behavior).
-        */}
+        <main
+          className="prose prose-invert max-w-none text-left"
+          dangerouslySetInnerHTML={{
+            __html:
+              typeof writing.html === "string" && writing.html.trim().length > 0
+                ? writing.html
+                : (Array.isArray(writing.content) ? writing.content.map((p) => `<p>${p}</p>`).join("\n") : "")
+          }}
+        />
 
-        {(() => {
-          const htmlSource =
-            typeof writing.html === "string" && writing.html.trim().length > 0
-              ? writing.html
-              : (Array.isArray(writing.content) ? writing.content.map((p) => `<p>${p}</p>`).join("\n") : "");
-
-          const PLACEHOLDER = "%GALLERY%";
-
-          if (htmlSource.includes(PLACEHOLDER)) {
-            const [before, after] = htmlSource.split(PLACEHOLDER);
-            return (
-              <>
-                <div className="prose prose-invert max-w-none text-left" dangerouslySetInnerHTML={{ __html: before }} />
-                {Array.isArray(writing.galleryImages) && writing.galleryImages.length > 0 && (
-                  <div className="mb-6">
-                    <GalleryCarousel images={writing.galleryImages} />
-                  </div>
-                )}
-                <div className="prose prose-invert max-w-none text-left" dangerouslySetInnerHTML={{ __html: after }} />
-              </>
-            );
-          }
-
-          // Default: render article then (optionally) the gallery at the bottom
-          return (
-            <>
-              <main className="prose prose-invert max-w-none text-left" dangerouslySetInnerHTML={{ __html: htmlSource }} />
-              {Array.isArray(writing.galleryImages) && writing.galleryImages.length > 0 && (
-                <div className="mt-6">
-                  <GalleryCarousel images={writing.galleryImages} />
-                </div>
-              )}
-            </>
-          );
-        })()}
-
+        {/* Optional gallery: if a writing provides a galleryImages array, render the carousel */}
+        {Array.isArray(writing.galleryImages) && writing.galleryImages.length > 0 && (
+          <GalleryCarousel images={writing.galleryImages} />
+        )}
+        
       </div>
     </div>
   );
