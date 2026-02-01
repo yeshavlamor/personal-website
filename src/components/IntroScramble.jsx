@@ -437,7 +437,7 @@ useEffect(() => {
 						})
 					})()}
 				</motion.div>
-				<div className="mt-6 text-sm opacity-60">Tap on the words to scramble them</div>
+				<div className="mt-6 text-sm opacity-60">scramble the words</div>
 			</div>
 		</section>
 	)

@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react"
 
+// Configuration constants
+const STAR_COUNT = 30
+const METEOR_COUNT = 3
 // id, size, x, y, opacity, animationDuration
 // id, size, x, y, delay, animationDuration
 
@@ -9,9 +12,9 @@ export const StarBackground = () => {
     useEffect(() => {
         const generateElements = () => {
             const newElements = []
-            
+
             // Generate stars with varied effects
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < STAR_COUNT; i++) {
                 newElements.push({
                     id: i,
                     type: 'star',
@@ -24,7 +27,7 @@ export const StarBackground = () => {
             }
 
             // Generate shooting stars (meteors) - positioned all over the page
-            for (let i = 0; i < 3; i++) {
+            for (let i = 0; i < METEOR_COUNT; i++) {
                 newElements.push({
                     id: `meteor-${i}`,
                     type: 'meteor',
@@ -39,6 +42,10 @@ export const StarBackground = () => {
         }
 
         generateElements()
+
+        // Re-generate when theme changes (app dispatches 'themeChanged')
+        window.addEventListener('themeChanged', generateElements)
+        return () => window.removeEventListener('themeChanged', generateElements)
     }, [])
 
     return (
