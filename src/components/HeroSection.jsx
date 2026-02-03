@@ -13,15 +13,15 @@ export const HeroSection = () => {
                     {/* Text Content */}
                     <div className="grow-[2] text-center lg:text-left space-y-4 md:space-y-6">
                         <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight whitespace-nowrap">
-                            <span className="opacity-0 animate-fade-in-delay-2"> Hi there! I'm Ayesha Villamor.</span>
+                            <span className="opacity-0 animate-fade-in-delay-2"> Hi there! My name is Ayesha.</span>
                             {/* <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-3">
                                 an aspiring software developer
                             </span>  */}
                         </h1> 
                         
                         <p className="text-base sm:text-lg md:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0 opacity-0 animate-fade-in-delay-4">
-                            With a curiousity spanning both tech and everything outside it, I am always keen on learning new things! 
-                            As of now, I am currenty exploring the intersection of AI, Big Data and Sustainability.                </p>
+                            With a curiosity spanning both tech and everything outside it, I am always keen on learning new things! 
+                            As of now, I am currently exploring the intersection of AI, Big Data and Sustainability.                </p>
 
                         {/* writings button */}
                         <div className="pt-4 opacity-0 animate-fade-in-delay-5 space-y-4">
