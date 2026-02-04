@@ -10,18 +10,17 @@ export const HeroSection = () => {
             <div className="container max-w-6xl mx-auto z-10">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-8 lg:gap-12">
                     
-                    {/* Text Content */}
-                    <div className="grow-[2] text-center lg:text-left space-y-4 md:space-y-6">
-                        <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight whitespace-nowrap">
-                            <span className="opacity-0 animate-fade-in-delay-2"> Hi there! My name is Ayesha.</span>
-                            {/* <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-3">
-                                an aspiring software developer
-                            </span>  */}
+                    {/* left child: Text Content */}
+                    <div className="grow-[2] text-left space-y-4 md:space-y-6">
+                        <h1 className="text-xl sm:text-3xl md:text-4xl font-bold tracking-tight whitespace-nowrap">
+                            <span className="opacity-0 animate-fade-in-delay-2"> Hi there! My name is Ayesha Villamor.</span>
                         </h1> 
-                        
-                        <p className="text-base sm:text-lg md:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0 opacity-0 animate-fade-in-delay-4">
-                            With a curiosity spanning both tech and everything outside it, I am always keen on learning new things! 
-                            As of now, I am currently exploring the intersection of AI, Big Data and Sustainability.                </p>
+
+                        <h2 className="text-md sm:text-lg md:text-2xl font-medium animate-fade-in-delay-3 text-left">
+                            <span className="block mt-1">Double Degree in Business & Computer Science </span> 
+                            <span className="block mt-1">NTU Singapore</span>
+                            <span className="block mt-1">NCSS Scholar</span>
+                        </h2>
 
                         {/* writings button */}
                         <div className="pt-4 opacity-0 animate-fade-in-delay-5 space-y-4">
@@ -69,12 +68,13 @@ export const HeroSection = () => {
                                 </div>
                             </div>
                         </div>
+
                     </div>
 
-                    {/* Profile Picture */}
+                    {/* right child: Profile Picture */}
                     <div className="grow-[1] justify-center lg:justify-end opacity-0 animate-fade-in-delay-3">
                         <div className="relative">
-                            <div className="w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
+                            <div className="w-30 h-30 sm:w-46 sm:h-46 md:w-62 md:h-62 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
                                 <img 
                                     src="/projects/LinkedIn_Photo.jpeg" 
                                     className="w-full h-full object-cover"
@@ -85,6 +85,19 @@ export const HeroSection = () => {
                         </div>
                     </div>
                 </div>
+
+                {/* bottom intro */}                
+                <div className="grow-[2] text-center lg:text-left space-y-4 md:space-y-6 mt-8 md:mt-12">
+                        {/* <p> With a curiosity spanning both tech and everything outside it, 
+                            I am always keen on learning new things! As of now, 
+                            I am currently exploring the intersection of AI, Big Data and Sustainability.
+                        </p> */}
+                        <p> I’m particularly interested in artificial intelligence, machine learning, and building systems that are both technically sound and human-centred. Whether it’s experimenting with models, designing dashboards, or exploring how technology can be applied to sustainability and real-world problems, I enjoy learning by building and questioning along the way.
+
+Beyond the technical side, I’m someone who’s constantly exploring — ideas, places, and creative outlets. I care deeply about growth, curiosity, and doing work that feels meaningful, even when the path isn’t fully defined yet. This site is less about having everything figured out, and more about documenting the process. Thank you for visiting, I hope you enjoy your time here! 
+
+                        </p>
+                    </div>
             </div> 
     </section>
     );
