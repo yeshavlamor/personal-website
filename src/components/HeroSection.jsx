@@ -38,7 +38,7 @@ export const HeroSection = () => {
                         <div className="pt-4 opacity-0 animate-fade-in-delay-5 space-y-4">  
                             <div className="flex flex-row items-left lg:justify-start gap-3 md:gap-4">
                                 {/* writings button */}
-                                <Link 
+                                {/* <Link 
                                     to="/writings" 
                                     className="px-4 py-2 md:px-6 md:py-3 rounded-full bg-primary/10 text-primary font-medium text-sm md:text-base 
                                              hover:bg-primary/90 transition-all duration-200 
@@ -47,7 +47,7 @@ export const HeroSection = () => {
                                              border-2 hover:border-primary/80"
                                 >
                                     Writings
-                                </Link>
+                                </Link> */}
                                 
                                 {/* Contact Icons */}
                                 <div className="flex items-center gap-3 md:gap-4">
@@ -97,7 +97,7 @@ export const HeroSection = () => {
                             
                             The more I built, the more I noticed that good technology isn’t just powerful — it’s considerate.
                             
-                            Nice to meet you! I am a Final Year Undergrad, with curiosity spanning tech and everything outside it. 
+                            I am a Final Year Undergrad, with curiosity spanning both tech and everything outside it. 
                             I am currently exploring the realms of AI and Big Data, with special interest in building technology 
                             for social good and sustainability.
 {/*                             
