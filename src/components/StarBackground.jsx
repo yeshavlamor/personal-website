@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 // Configuration constants
-const STAR_COUNT = 30
+const STAR_COUNT = 20
 const METEOR_COUNT = 3
 // id, size, x, y, opacity, animationDuration
 // id, size, x, y, delay, animationDuration
