@@ -1,9 +1,10 @@
 import { useMemo } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { writings } from "@/data/writings";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { baseCategories, isValidCategory, getCategoryLabel } from "@/data/categories";
 import WritingCard from "@/components/WritingCard";
+import { ArrowLeft } from "lucide-react";
 
 export const Category = () => {
   const { category } = useParams(); // extract category from url 
@@ -43,8 +44,26 @@ export const Category = () => {
     <section className="py-24 px-4 relative min-h-screen bg-background text-foreground">
       <ThemeToggle />
       <div className="container mx-auto max-w-5xl">
-        <div className="text-left mb-8">
-          <button onClick={handleBackToHome} className="text-primary hover:underline">← Back to Home</button>
+        {/* Back button: fixed on small screens, in-flow on md+ */}
+        <div className="md:static">
+          {/* Mobile: fixed top-left */}
+          <button
+            onClick={handleBackToHome}
+            aria-label="Back to home"
+            className="block md:hidden fixed top-5 left-5 z-50 p-2 rounded-full bg-card/80 backdrop-blur-sm border border-primary/20 text-primary hover:opacity-90"
+          >
+            <ArrowLeft size={18} />
+          </button>
+
+          {/* Desktop/tablet: in-flow, aligned with content */}
+          <div className="hidden md:block mb-8">
+            <button
+              onClick={handleBackToHome}
+              className="inline-flex items-center gap-2 text-primary hover:underline"
+            >
+              <ArrowLeft size={18} /> Back home
+            </button>
+          </div>
         </div>
 
         <h1 className="text-3xl md:text-5xl font-bold mb-4 text-center">
@@ -65,12 +84,6 @@ export const Category = () => {
             ))}
           </div>
         )}
-
-        <div className="text-center mt-12">
-          <button onClick={handleBackToHome} className="cosmic-button w-fit inline-flex items-center gap-2">
-            Back Home
-          </button>
-        </div>
       </div>
     </section>
   );
