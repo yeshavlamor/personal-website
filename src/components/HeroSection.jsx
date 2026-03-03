@@ -7,13 +7,13 @@ export const HeroSection = () => {
             id="hero"
             className="relative min-h-screen flex flex-col items-center justify-center px-4"
         >            
-            <div className="container max-w-6xl mx-auto z-10">
+            <div className="container max-w-3xl mx-auto z-10">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-8 lg:gap-12">
                     
                     {/* left child: Profile Picture */}
                     <div className="grow-[1] justify-center lg:justify-end opacity-0 animate-fade-in-delay-3">
                         <div className="relative">
-                            <div className="w-40 h-40 sm:w-66 sm:h-66 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
+                            <div className="w-40 h-40 sm:w-60 sm:h-60 md:w-55 md:h-55 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
                                 <img 
                                     src="/projects/LinkedIn_Photo.jpeg" 
                                     className="w-full h-full object-cover"
@@ -24,11 +24,11 @@ export const HeroSection = () => {
 
                     {/* right child: Text Content */}
                     <div className="grow-[2] text-left space-y-4 md:space-y-6">
-                        <h1 className="text-xl sm:text-3xl md:text-4xl font-bold tracking-tight whitespace-nowrap">
-                            <span className="opacity-0 animate-fade-in-delay-2"> Hi there! My name is Ayesha Villamor.</span>
+                        <h1 className="text-2xl sm:text-4xl md:text-3xl font-bold tracking-tight whitespace-nowrap">
+                            <span className="opacity-0 animate-fade-in-delay-2"> Hi! My name is Ayesha Villamor.</span>
                         </h1> 
 
-                        <h2 className="text-sm sm:text-md md:text-xl font-medium animate-fade-in-delay-3 text-left">
+                        <h2 className="text-md sm:text-xl md:text-xl font-medium animate-fade-in-delay-3 text-left">
                             <span className="block mt-1">Double Degree in Business & Computer Science </span> 
                             <span className="block mt-1">NTU, Singapore</span>
                             {/* <span className="block mt-1">NCSS Scholar</span> */}
@@ -38,7 +38,7 @@ export const HeroSection = () => {
                         <div className="pt-4 opacity-0 animate-fade-in-delay-5 space-y-4">  
                             <div className="flex flex-row items-left lg:justify-start gap-3 md:gap-4">
                                 {/* writings button */}
-                                {/* <Link 
+                                <Link 
                                     to="/writings" 
                                     className="px-4 py-2 md:px-6 md:py-3 rounded-full bg-primary/10 text-primary font-medium text-sm md:text-base 
                                              hover:bg-primary/90 transition-all duration-200 
@@ -47,7 +47,7 @@ export const HeroSection = () => {
                                              border-2 hover:border-primary/80"
                                 >
                                     Writings
-                                </Link> */}
+                                </Link>
                                 
                                 {/* Contact Icons */}
                                 <div className="flex items-center gap-3 md:gap-4">
@@ -87,7 +87,7 @@ export const HeroSection = () => {
                 </div>
 
                 {/* bottom intro */}                
-                <div className="grow-[2] text-center lg:text-left space-y-4 md:space-y-6 mt-8 md:mt-12">
+                <div className="grow-[2] text-justify space-y-4 md:space-y-6 mt-8 md:mt-12">
                         {/* <p> With a curiosity spanning both tech and everything outside it, 
                             I am always keen on learning new things! As of now, 
                             I am currently exploring the intersection of AI, Big Data and Sustainability.
