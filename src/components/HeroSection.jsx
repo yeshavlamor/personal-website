@@ -7,7 +7,7 @@ export const HeroSection = () => {
             id="hero"
             className="relative min-h-screen flex flex-col items-center justify-center px-4"
         >            
-            <div className="container max-w-3xl mx-auto z-10">
+            <div className="container max-w-4xl mx-auto z-10">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-8 lg:gap-12">
                     
                     {/* left child: Profile Picture */}
@@ -35,7 +35,8 @@ export const HeroSection = () => {
                         </h2>
 
                         {/* buttons */}
-                        <div className="pt-4 opacity-0 animate-fade-in-delay-5 space-y-4">  
+                        <div className="pt-4 opacity-0 animate-fade-in-delay-5 space-y-3">  
+                            {/* Primary navigation buttons */}
                             <div className="flex flex-row items-left lg:justify-start gap-3 md:gap-4">
                                 {/* writings button */}
                                 <Link 
@@ -48,37 +49,49 @@ export const HeroSection = () => {
                                 >
                                     Writings
                                 </Link>
+
+                                {/* experience button */}
+                                <Link 
+                                    to="/experience" 
+                                    className="px-4 py-2 md:px-6 md:py-3 rounded-full bg-primary/10 text-primary font-medium text-sm md:text-base 
+                                             hover:bg-primary/90 transition-all duration-200 
+                                             hover:shadow-xl hover:shadow-primary/25
+                                             transform hover:scale-105 active:scale-95
+                                             border-2 hover:border-primary/80"
+                                >
+                                    Experience
+                                </Link>
+                            </div>
+
+                            {/* Contact Icons moved to second row */}
+                            <div className="flex items-center gap-3 md:gap-4">
+                                <a
+                                    href="https://www.linkedin.com/in/ayesha-villamor"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="p-2 md:p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors duration-200 group"
+                                    aria-label="LinkedIn Profile"
+                                >
+                                    <Linkedin className="h-5 w-5 md:h-6 md:w-6 text-primary group-hover:scale-110 transition-transform duration-200" />
+                                </a>
                                 
-                                {/* Contact Icons */}
-                                <div className="flex items-center gap-3 md:gap-4">
-                                    <a
-                                        href="https://www.linkedin.com/in/ayesha-villamor"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="p-2 md:p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors duration-200 group"
-                                        aria-label="LinkedIn Profile"
-                                    >
-                                        <Linkedin className="h-5 w-5 md:h-6 md:w-6 text-primary group-hover:scale-110 transition-transform duration-200" />
-                                    </a>
-                                    
-                                    <a
-                                        href="https://github.com/yeshavlamor"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="p-2 md:p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors duration-200 group"
-                                        aria-label="GitHub Profile"
-                                    >
-                                        <Github className="h-5 w-5 md:h-6 md:w-6 text-primary group-hover:scale-110 transition-transform duration-200" />
-                                    </a>
-                                    
-                                    <a
-                                        href="mailto:ayeshavlamor@gmail.com"
-                                        className="p-2 md:p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors duration-200 group"
-                                        aria-label="Send Email"
-                                    >
-                                        <Mail className="h-5 w-5 md:h-6 md:w-6 text-primary group-hover:scale-110 transition-transform duration-200" />
-                                    </a>
-                                </div>
+                                <a
+                                    href="https://github.com/yeshavlamor"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="p-2 md:p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors duration-200 group"
+                                    aria-label="GitHub Profile"
+                                >
+                                    <Github className="h-5 w-5 md:h-6 md:w-6 text-primary group-hover:scale-110 transition-transform duration-200" />
+                                </a>
+                                
+                                <a
+                                    href="mailto:ayeshavlamor@gmail.com"
+                                    className="p-2 md:p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors duration-200 group"
+                                    aria-label="Send Email"
+                                >
+                                    <Mail className="h-5 w-5 md:h-6 md:w-6 text-primary group-hover:scale-110 transition-transform duration-200" />
+                                </a>
                             </div>
                         </div>
 
