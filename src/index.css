@@ -243,10 +243,13 @@
 /* Basic typography for writing content (no typography plugin) */
 .prose {
   text-align: left;
+  font-family: 'Spectral', Georgia, serif;
+  font-size: 19px;
+  line-height: 1.6em;
 }
 
 .prose p {
-  margin: 0 0 1rem 0;
+  margin: 0 0 12px 0;
 }
 
 .prose h1 { font-size: 2rem; line-height: 1.25; margin: 1.5rem 0 1rem; }
