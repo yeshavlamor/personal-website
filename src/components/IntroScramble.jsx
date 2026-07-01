@@ -437,7 +437,7 @@ useEffect(() => {
 						})
 					})()}
 				</motion.div>
-				<div className="mt-6 text-sm opacity-60">scramble the words</div>
+				<div className="mt-6 text-sm opacity-60">scramble the words and sit back!</div>
 			</div>
 		</section>
 	)
